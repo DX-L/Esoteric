@@ -1,0 +1,27 @@
+@url=http://localhost:3005/api/auth
+@json=Content-Type: application/json
+
+### 测试路由
+get {{url}}/register/email
+### 所有用户
+get {{url}}/users
+### 删除所有用户
+delete {{url}}/delete-user
+### 注册
+post {{url}}/register
+{{json}}
+
+{
+    "username": "user1",
+    "password": "123456"
+}
+
+### 检查email
+patch {{url}}/register/email
+{{json}}
+
+{
+    "email": "dean@gmail.com"
+}
+### 登陆
+post {{url}}/login
