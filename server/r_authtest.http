@@ -1,0 +1,5 @@
+@url=http://localhost:3005/auth
+@json=Content-Type: application/json
+
+### 测试路由
+get {{url}}/refresh

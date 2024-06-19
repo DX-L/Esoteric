@@ -15,9 +15,7 @@ const emailSchema = Joi.string()
 // 单独的 password 验证 schema
 const passwordSchema = Joi.string()
     .min(6)
-    .pattern(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/
-    )
+    .pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/)
     .required()
     .messages({
         'string.empty': 'Password is required',
@@ -39,11 +37,11 @@ const usernameSchema = Joi.string()
 const registerSchema = Joi.object({
     email: emailSchema,
     password: passwordSchema,
+    username: usernameSchema,
 });
 
 module.exports = {
     emailSchema,
-    passwordSchema,
     usernameSchema,
     registerSchema,
 };

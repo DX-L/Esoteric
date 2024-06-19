@@ -2,8 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const mongoSanitize = require('express-mongo-sanitize');
 const dotenv = require('dotenv');
+const device = require('express-device');
 const connectMongoDB = require('./config/mongoDB');
 const routes = require('./routes/index');
+const authRoute = require('./auth');
 const { CustomError } = require('./utils/customErrors');
 
 dotenv.config();
@@ -13,7 +15,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(mongoSanitize({ replaceWith: '_' }));
+app.use(device.capture());
 
+app.use('/auth', authRoute);
 app.use('/api', routes);
 
 app.use((err, req, res, next) => {

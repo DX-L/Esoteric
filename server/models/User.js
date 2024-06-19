@@ -1,11 +1,28 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const Schema = mongoose.Schema;
 
-const userSchema = new mongoose.Schema(
+const deviceSchema = new Schema(
+    {
+        type: {
+            type: String,
+            enum: ['Desktop', 'Mobile', 'Tablet'], // 限定设备类型为桌面、移动和平板三种
+            required: true,
+        },
+        token: {
+            type: String,
+            required: true,
+            default: null,
+        },
+    },
+    { _id: false }
+);
+
+const userSchema = new Schema(
     {
         email: {
             type: String,
-            required: true,
+            required: [true, 'Email cannot be blank!'],
             unique: true,
         },
         password: {
@@ -15,30 +32,30 @@ const userSchema = new mongoose.Schema(
         },
         username: {
             type: String,
-            sparse: true,
+            required: [true, 'Username cannot be blank!'],
             unique: true,
         },
-        // 如果actavite code === activated, 证明用户验证邮箱完成!
-        actavite_code: {
+        //
+        valid_code: {
             type: String,
         },
-        // 表示用户是否在线
-        actavite_status: {
+        // 表示用户是否在线,
+        online: {
             type: Boolean,
-            default: false,
         },
         display_name: {
             type: String,
         },
         role: {
             type: String,
-            enum: ['client', 'master'],
-            default: 'client',
+            enum: ['inactivated', 'client', 'master'],
+            default: 'inactivated',
         },
         tag: {
             type: [String],
             default: [],
         },
+        devices: [deviceSchema],
     },
     {
         timestamps: true,
