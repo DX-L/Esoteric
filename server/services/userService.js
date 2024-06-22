@@ -8,7 +8,7 @@ const gmailsend = require('../utils/gmailsend');
 // 存在返回true, 不存在返回false
 const checkExist = async (data = {}) => {
     try {
-        const status = await User.findOne(data);
+        const status = await User.exists(data);
         return status;
     } catch (err) {
         throw new DatabaseQueryError(
@@ -18,24 +18,13 @@ const checkExist = async (data = {}) => {
 };
 
 // 创建一个填入邮箱和密码,用户名的用户
-const newUser = async (data = {}) => {
+const newUser = async ({ email, password, username }) => {
     try {
-        const user = new User(data);
+        const user = new User({ email, password, username });
         await user.save();
         return { id: user._id, role: user.role };
     } catch (err) {
-        throw new DatabaseQueryError(err);
-    }
-};
-
-//
-// 生成shaungtoken, 并把refresh Token存在数据库
-const doubleToken = async (res, data = {}, device) => {
-    try {
-        const accessJWT = generateToken(data, process.env.ACCESS_TOKEN_SECRET);
-        const refreshJWT = generateToken(data, process.env.REFRESH_TOKEN_SECRET);
-    } catch (err) {
-        throw new DataGenerationError('generate token error');
+        throw new DatabaseQueryError(`Error creating new user: ${err.message}`);
     }
 };
 
@@ -53,7 +42,6 @@ const sendCaptchaEmail = async (toEmail) => {
     } catch (err) {
         throw new DatabaseQueryError('Database: update valid code failed');
     }
-    return true;
 };
 
 module.exports = {

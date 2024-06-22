@@ -1,5 +1,4 @@
-@url=http://localhost:3005/auth
-@json=Content-Type: application/json
-
-### 测试路由
-get {{url}}/refresh
+@url=http://localhost:3005
+@cookie=refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NzcxMDI0ODAyZTYyNzM3YWU2NjAxNSIsInJvbGUiOiJpbmFjdGl2YXRlZCIsImlhdCI6MTcxOTA3ODk0OCwiZXhwIjoxNzE5OTQyOTQ4fQ.1mR1hvbVzWzq9Bzvi3NCenLn4Q5KrB8FOPXVSTFneyw
+get {{url}}/auth/refresh
+Cookie: {{cookie}}

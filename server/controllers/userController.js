@@ -1,6 +1,6 @@
 const { emailSchema, registerSchema, usernameSchema } = require('../utils/Validator');
 const { checkExist, newUser, sendCaptchaEmail } = require('../services/userService');
-const generateToken = require('../utils/generateToken');
+const { bindAndSaveTokens } = require('../services/cookieService');
 
 //单独检查邮箱是否合法
 const checkEmail = async (req, res) => {
@@ -27,15 +27,11 @@ const preRegister = async (req, res) => {
         allowUnknown: false,
     });
     if (error) return res.status(400).json({ error: error.details[0].message });
-    const id_role = await newUser(req.body);
+    const id_role = await newUser(req.body); //{ id: user._id, role: user.role };
     const { email } = req.body;
-    const sendcode = await sendCaptchaEmail(email);
-    if (sendcode) {
-        const token = generateToken(id_role);
-        res.status(200).json({ token, msg: 'ok' });
-    } else {
-        res.status(400).json({ error: 'please resubmit!' });
-    }
+    // await sendCaptchaEmail(email);
+    await bindAndSaveTokens(res, id_role, req.device.type);
+    res.status(200).json({ msg: 'ok' });
 };
 
 module.exports = {

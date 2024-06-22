@@ -1,6 +1,5 @@
 // utils/CustomErrors.js
 
-// 注释掉的部分用return可以节省一定性能-
 class CustomError extends Error {
     constructor(message, statusCode) {
         super(message);
@@ -32,7 +31,7 @@ class UnauthorizedError extends CustomError {
 
 /**
  * 禁止错误类
- * 当用户的身份已验证，但尝试执行其没有权限的操作时抛出此错误。
+ * 当用户的身份已验证，但尝试执行其没有权限的操作时抛出此错误。表示服务器理解请求但拒绝执行
  * HTTP 状态码: 403
  */
 class ForbiddenError extends CustomError {
@@ -55,7 +54,6 @@ class NotFoundError extends CustomError {
 /**
  * 冲突错误类
  * 当请求的操作与服务器的当前状态冲突时抛出此错误。
- * 常见于创建已存在的唯一资源（如重复的用户名或邮箱）。
  * HTTP 状态码: 409
  */
 class ConflictError extends CustomError {
@@ -111,7 +109,7 @@ class DataGenerationError extends CustomError {
         super(message, 500);
     }
 }
-
+// 注释掉的部分用return可以节省一定性能-
 module.exports = {
     CustomError,
     // BadRequestError,

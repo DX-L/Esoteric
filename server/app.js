@@ -1,21 +1,22 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const mongoSanitize = require('express-mongo-sanitize');
-const dotenv = require('dotenv');
 const device = require('express-device');
+const cookieParser = require('cookie-parser');
 const connectMongoDB = require('./config/mongoDB');
 const routes = require('./routes/index');
 const authRoute = require('./auth');
 const { CustomError } = require('./utils/customErrors');
 
-dotenv.config();
 connectMongoDB();
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(mongoSanitize({ replaceWith: '_' }));
-app.use(device.capture());
+app.use(device.capture({ parseUserAgent: true }));
+app.use(cookieParser());
 
 app.use('/auth', authRoute);
 app.use('/api', routes);

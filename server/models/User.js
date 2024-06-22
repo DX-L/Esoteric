@@ -6,7 +6,7 @@ const deviceSchema = new Schema(
     {
         type: {
             type: String,
-            enum: ['Desktop', 'Mobile', 'Tablet'], // 限定设备类型为桌面、移动和平板三种
+            enum: ['desktop', 'phone', 'tablet'], // 限定设备类型为桌面、移动和平板三种
             required: true,
         },
         token: {
@@ -40,8 +40,9 @@ const userSchema = new Schema(
             type: String,
         },
         // 表示用户是否在线,
-        online: {
+        locked: {
             type: Boolean,
+            default: false,
         },
         display_name: {
             type: String,
@@ -53,7 +54,6 @@ const userSchema = new Schema(
         },
         tag: {
             type: [String],
-            default: [],
         },
         devices: [deviceSchema],
     },
