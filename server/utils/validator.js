@@ -40,8 +40,14 @@ const registerSchema = Joi.object({
     username: usernameSchema,
 });
 
+const loginSchema = Joi.object({
+    email: emailSchema,
+    password: passwordSchema,
+});
+
 module.exports = {
     emailSchema,
     usernameSchema,
     registerSchema,
+    loginSchema,
 };

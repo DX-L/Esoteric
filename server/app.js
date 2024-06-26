@@ -30,5 +30,5 @@ app.use((err, req, res, next) => {
 
 app.listen(process.env.PORT, () => {
     console.log('Server running');
-    console.log(`http://localhost:${process.env.PORT}`);
+    console.log(`${process.env.DOMIN}`);
 });

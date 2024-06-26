@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
             }
             const remainingTime = decoded.exp * 1000 - Date.now(); // 转换为毫秒
             // token存在, refreshToken少于3天
-            if (remainingTime < 16 * 24 * 60 * 60 * 1000) {
+            if (remainingTime < 3 * 24 * 60 * 60 * 1000) {
                 const { accessJWT, refreshJWT } = doubleToken(data);
                 bindAccessToken(res, accessJWT);
                 bindRefreshToken(res, refreshJWT);

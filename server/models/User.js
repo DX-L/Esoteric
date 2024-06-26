@@ -39,7 +39,7 @@ const userSchema = new Schema(
         valid_code: {
             type: String,
         },
-        // 表示用户是否在线,
+        // 表示用户被锁,
         locked: {
             type: Boolean,
             default: false,
