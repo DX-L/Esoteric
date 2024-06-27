@@ -1,0 +1,113 @@
+.gigContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 315px;
+    min-width: 315px;
+    height: 375px;
+    
+    // border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+    .gigImg {
+        width: 100%;
+        height: 190px;
+        // display: flex;
+        // align-content: flex-start;
+        position: relative;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px 5px 0 0;
+
+        }
+        
+        .likeIcon {
+            img{
+                width: 30px;
+                height: 30px;
+            }
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+
+        }
+    }
+
+    .gigDetail{
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 100%;
+        height: 185px;
+        // align-content: space-between;
+        justify-content: space-between;
+
+        .gigTitle {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #333;
+            flex:1;
+        }
+
+        .gigUser {
+            display: flex;
+            flex-direction: row;
+            gap: 5px;
+            align-content: center;
+            justify-content: space-between;
+            flex:1;
+            .gigAvatar {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 10px;
+
+                img{
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                }
+                span{
+                    font-size: 1rem;
+                    font-weight: 400;
+                    color: #666;
+                
+                }
+            }
+            
+            .gigRate {
+                justify-content: flex-end;
+            }
+        }
+        
+        .gigDescription {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #666;
+            flex:1;
+            // 是否对多余的文本显示省略号？ 或者是在制作post的时候对紫薯作出限制？
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* 限制显示两行 */
+            -webkit-box-orient: vertical;
+            white-space: normal; /* 确保文本正常换行 */
+        }
+
+        .gigPrice {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex:1;
+        }
+    }
+}

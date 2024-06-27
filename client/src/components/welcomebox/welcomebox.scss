@@ -1,0 +1,40 @@
+@import '../../responsive.scss';
+
+.welcomeBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(167, 170, 160);
+    width: 100%;
+    font-size: xx-large;
+    @include lg {
+        font-size: x-large;
+    }
+    @include md {
+        font-size: large;
+    }
+    @include sm {
+        flex-direction: column;
+        .left {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+
+    .left {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .right {
+        flex: 1;
+        padding: 10px;
+        background-color: rgb(177, 180, 171);
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+    }
+}
