@@ -1,0 +1,58 @@
+@url=http://localhost:3005/api/user
+@json=Content-Type: application/json
+@cookie=accessToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2E5ZmQ4MTUxMTdmMzg0YzAwOGY2MCIsInJvbGUiOiJpbmFjdGl2YXRlZCIsImlhdCI6MTcxOTMxMzAxMywiZXhwIjoxNzE5MzEzOTEzfQ.Uu9yEo2meeJu4Qf4O-hcQ1cW36HHr6LGaKPFC5qEMoI
+
+# ### 测试login路由
+# get {{url}}/login
+
+# ### 登陆
+# post {{url}}/login
+# {{json}}
+
+# {
+#     "email": "esoteric.test2@gmail.com",
+#     "password": "E_dean_x1.1"
+# }
+
+# ###退出登录
+# get {{url}}/logout
+# Cookie: {{cookie}}
+
+
+# ### 测试logout路由
+# get {{url}}/logout
+
+# ### 检查email
+# patch {{url}}/register
+# {{json}}
+
+# {
+#     "email": "esoteric.test2@gmail.com"
+# }
+
+# ### 检查username
+# post {{url}}/register
+# {{json}}
+
+# {
+#     "username": "dean_liu"
+# }
+
+# ### 注册preRegister "esoteric.test2@gmail.com"
+# put {{url}}/register
+# {{json}}
+
+# {
+#     "email": "esoteric.test2@gmail.com",
+#     "password": "E_dean_x1.1",
+#     "username": "dean_liu",
+# }
+### 验证验证码
+post {{url}}/userActivate
+Content-Type: {{json}}
+Cookie: {{cookie}}
+
+{
+    "captcha": "7788"
+}
+

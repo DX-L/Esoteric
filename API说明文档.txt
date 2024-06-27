@@ -1,0 +1,1 @@
+authorization patch /api/auth/register/email 输入邮箱时的检测格式和是否已经被注册

@@ -1,0 +1,4 @@
+@url=http://localhost:3005
+@cookie=refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2E5ZmQ4MTUxMTdmMzg0YzAwOGY2MCIsInJvbGUiOiJpbmFjdGl2YXRlZCIsImlhdCI6MTcxOTMxMjM0OSwiZXhwIjoxNzIwMTc2MzQ5fQ.8KqOFZ6s1nmZoZmRIqLY3zX0hMF3ybU6YgwEPeGPdFE
+get {{url}}/auth/refresh
+Cookie: {{cookie}}
