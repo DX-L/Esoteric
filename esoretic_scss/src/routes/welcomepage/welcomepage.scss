@@ -1,0 +1,97 @@
+.welcomepage {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .bgImg {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-image: url('../../assets/images/welcome-bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+
+            h1 {
+                font-size: 10rem;
+                font-weight: 700;
+                color: #fff;
+                font-family: "Dancing Script", cursive;
+                font-optical-sizing: auto;
+                font-style: normal;
+            }
+
+        }
+
+        // filter: blur(5px);
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            /* 你可以根据需要调整高度 */
+            background: linear-gradient(to top, white, rgba(255, 255, 255, 0));
+            pointer-events: none;
+            /* 确保渐变不会影响到图片的点击事件 */
+        }
+    }
+
+    .intro {
+        background-color: rgba(75, 128, 47, 0.5);
+        color: rgba(75, 128, 47, 0.9);
+        width: 100%;
+        height: 100vh;
+        position: relative;
+
+        .desc {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            gap: 50px;
+
+            h1 {
+                font-size: 3rem;
+                font-weight: 700;
+                color: #fff;
+            }
+
+            p {
+                font-size: 1.5rem;
+                color: #fff;
+            }
+
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            /* 你可以根据需要调整高度 */
+            background: linear-gradient(to bottom, white, rgba(255, 255, 255, 0));
+            pointer-events: none;
+            /* 确保渐变不会影响到图片的点击事件 */
+        }
+    }
+}

@@ -1,0 +1,56 @@
+@import '../../responsive.scss';
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0 20px;
+    font-weight: 700;
+    font-style: italic;
+    color: #312d2d;
+    // background-color: aliceblue;
+    @include sm {
+        font-size: small;
+    }
+
+    .leftNav {
+        display: flex;
+        flex:1;
+        // background-color: beige;
+        img{
+            width: 120px;
+            height: 120px;
+        }
+    }
+
+    .rightNav {
+        display: flex;
+        flex:4;
+        gap: 20px;
+        padding: 20px;
+        justify-content: flex-end;
+        align-items: center;
+        // background-color: burlywood;
+        .explore {
+            @include sm{
+                display: none;
+            }
+        }
+        .beCounselor {
+            @include sm{
+                display: none;
+            }
+        }
+
+        .join {
+            border: 2px solid #064938;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            p{
+                padding: 5px 8px;
+            }
+        }
+    }
+}

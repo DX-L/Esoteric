@@ -1,0 +1,97 @@
+@import '../../responsive.scss';
+
+.catogorynavbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    // margin-bottom: 50px;
+    border-left: none;
+    border-right: none;
+    font-weight: 300;
+    font-size: 1.2rem;
+    
+    @include sm {
+        font-size: 1rem;
+    }
+    
+    .fengshui {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        cursor: pointer;
+
+        &:hover {
+            scale: 1.2;
+            color: #6e8b74;
+            font-weight: 400;
+        }
+    }
+
+    .astrology {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+
+        &:hover {
+            scale: 1.2;
+            color: #6e8b74;
+            font-weight: 400;
+        }
+        
+    }
+
+    .tarot {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+
+        &:hover {
+            scale: 1.2;
+            color: #6e8b74;
+            font-weight: 400;
+        }
+    }
+
+    .ziwei {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+
+        &:hover {
+            scale: 1.2;
+            color: #6e8b74;
+            font-weight: 400;
+        }
+    }
+
+    .bazi {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+
+        &:hover {
+            scale: 1.2;
+            color: #6e8b74;
+            font-weight: 400;
+        }
+    }
+
+    .psychology {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+
+        &:hover {
+            scale: 1.2;
+            color: #6e8b74;
+            font-weight: 400;
+        }
+    }
+}

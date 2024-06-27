@@ -1,0 +1,66 @@
+@import '../../responsive.scss';
+
+.layout {
+    // background-color: #f2e6ce; // 中国色 荔肉白
+    height: 100vh;
+    // max-width: 1366px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    padding-left: 20px;
+    padding-right: 20px;
+    color: #6e8b74;
+    flex-direction: column;
+
+
+    .navbar {
+        width: 100%;
+    }
+
+    .catogory {
+        width: 100%;
+        border: 2px solid rgb(104, 106, 103);
+        border-left: none;
+        border-right: none;
+        color: rgb(104, 106, 103);
+        margin-bottom: 30px;
+        @include sm{
+            // display: none;
+            margin-top: 20px;
+            // border: none;
+            font-size: 15px;
+            margin-bottom: 10px;
+        }
+        @include md{
+            font-size: 20px;
+        }
+    }
+
+    @include lg {
+        // background-color: #e2e1e4;
+        color: #74759b;
+        max-width: 1280px;
+    }
+
+    @include md {
+        // background-color: #efdfdf;
+        color: #795a5f;
+        max-width: 768px;
+    }
+
+    @include sm {
+        // background-color: #b0b298;
+        color: #475c4e;
+        max-width: 640px;
+    }
+
+    .content {
+        // background-color: lightgray;
+        // flex:1;
+        height: calc(100% - 100px);
+
+        @include sm {
+            margin-top: 20px;
+        }
+    }
+}
