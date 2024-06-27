@@ -45,7 +45,7 @@
 # {
 #     "email": "esoteric.test2@gmail.com",
 #     "password": "E_dean_x1.1",
-#     "username": "dean_liu"
+#     "username": "dean_liu",
 # }
 ### 验证验证码
 post {{url}}/userActivate
@@ -53,6 +53,6 @@ Content-Type: {{json}}
 Cookie: {{cookie}}
 
 {
-    "captcha": "586656"
+    "captcha": "7788"
 }
 
